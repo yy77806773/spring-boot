@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yy.demo.mappers.SeckillMapper">
+    <resultMap id="BaseResultMap" type="com.yy.demo.common.entity.Seckill">
+        <id column="seckill_id" jdbcType="BIGINT" property="seckillId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="number" jdbcType="INTEGER" property="number"/>
+        <result column="startTime" jdbcType="TIMESTAMP" property="start_time"/>
+        <result column="endTime" jdbcType="TIMESTAMP" property="end_time"/>
+        <result column="createTime" jdbcType="TIMESTAMP" property="create_time"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+    </resultMap>
+    <select id="getBySeckillId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select * from seckill where seckill_id = #{seckillId, jdbcType=BIGINT}
+    </select>
+</mapper>
